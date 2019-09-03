@@ -1,0 +1,532 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.org.name</groupId>
+	<artifactId>myStore</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<!-- compiler -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
+
+
+
+		<!-- dependency version -->
+
+
+		<framework.version>0.9</framework.version>
+		<aspectj.version>1.8.10</aspectj.version>
+		<cucumber.version>2.2.0</cucumber.version>
+		<junit.version>4.12</junit.version>
+		<selenium.version>3.14.0</selenium.version>
+		<spring.version>4.3.10.RELEASE</spring.version>
+		<commons.version>3.2</commons.version>
+		
+		<allure.version>2.7.0</allure.version>
+		<slf4j.version>1.8.0-beta1</slf4j.version>
+		<reportPortal.version>4.0.0</reportPortal.version>
+
+
+
+		<!-- salesforce default config -->
+		<driver.browser>CHROME</driver.browser>
+		<execution.type>LOCAL</execution.type>
+		<grid.hub.url>http://zalenium-hub.cupc.inttest.nbn-aws.local:4444/wd/hub</grid.hub.url>
+		<steps.context.scope>SCENARIO</steps.context.scope>
+		<execution.recordVideo>true</execution.recordVideo>
+		<execution.tag>@reg</execution.tag>
+
+		<aut>uat</aut>
+		<env>uat</env>
+		<build.version>19.1.1</build.version>
+		<aut.url>https://nbn--validation.cs5.my.salesforce.com/</aut.url>
+	
+		<webdriver.browser.driver>./chromedriverlinux.bin</webdriver.browser.driver>
+		<!-- <webdriver.browser.driver>C:\Automationworkspace\New folder\SalesForce\SFTESTFRAMEWORK\salesforcetests\src\test\resources\chromedriver.exe</webdriver.browser.driver> -->
+		<testrunner>**/*IT</testrunner>
+		<surefire.parallel>classes</surefire.parallel>
+		<surefire.parallel.thread.count>1</surefire.parallel.thread.count>
+	</properties>
+	<dependencies>
+		<!-- cucumber -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>${cucumber.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-core</artifactId>
+			<version>${cucumber.version}</version>
+		</dependency>
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<!-- selenium -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.wnameless/json-flattener -->
+		<dependency>
+			<groupId>com.github.wnameless</groupId>
+			<artifactId>json-flattener</artifactId>
+			<version>0.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-cucumber2-jvm</artifactId>
+			<version>${allure.version}</version>
+		</dependency>
+		<!-- ashot -->
+		<dependency>
+			<groupId>ru.yandex.qatools.ashot</groupId>
+			<artifactId>ashot</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ru.yandex.qatools.htmlelements</groupId>
+			<artifactId>htmlelements-java</artifactId>
+			<version>1.19</version>
+		</dependency>
+		<!-- monte -->
+		<dependency>
+			<groupId>org.aeonbits.owner</groupId>
+			<artifactId>owner</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility-proxy</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.pojosontheweb</groupId>
+			<artifactId>selenium-utils-core</artifactId>
+			<version>1.4.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180813</version>
+		</dependency>
+		<dependency>
+			<groupId>nbn.sf.automation</groupId>
+			<artifactId>sf-frk</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+			<version>5.11.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.esotericsoftware.yamlbeans</groupId>
+			<artifactId>yamlbeans</artifactId>
+			<version>1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.bundles</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211_1</version>
+			<!--<version>${framework.version}</version> -->
+		</dependency>
+
+		
+
+
+		 <dependency>
+			<groupId>jami</groupId>
+			<artifactId>xray</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--ojdbc -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+		<!-- Assert library -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<!--<version>3.11.1</version>-->
+			<version>3.11.1</version>
+		</dependency>
+		
+		 <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.3</version>
+        </dependency>
+
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>com.github.temyers</groupId>
+				<artifactId>cucumber-jvm-parallel-plugin</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+						<id>generateRunners</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>generateRunners</goal>
+						</goals>
+						<configuration>
+							<!-- Mandatory -->
+							<!-- comma separated list of package names to scan for glue code -->
+							<glue>
+								<package>com.org.steps.myStore</package>
+							</glue>
+							<outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
+							<!-- The directory, which must be in the root of the runtime classpath, 
+								containing your feature files. -->
+							<featuresDirectory>src/test/resources/features</featuresDirectory>
+							<!-- Directory where the cucumber report files shall be written -->
+							<!-- cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir -->
+							<!-- comma separated list of output formats json,html,rerun.txt -->
+							<!-- format>json</format -->
+							<!-- CucumberOptions.strict property -->
+							<!-- strict>true</strict> -->
+							<!-- CucumberOptions.monochrome property -->
+							<monochrome>true</monochrome>
+							<!-- The tags to run, maps to CucumberOptions.tags property you can 
+								pass ANDed tags like "@tag1","@tag2" and ORed tags like "@tag1,@tag2,@tag3" -->
+							<!-- If set to true, only feature files containing the required tags 
+								shall be generated. -->
+							<!-- <filterFeaturesByTags>@LoginPage</filterFeaturesByTags> -->
+							<plugins>
+								
+								<plugin>
+									<!--<name>io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm</name> -->
+									<name>io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm</name>
+									<noOutput>true</noOutput>
+								</plugin>
+								<plugin>
+									<name>rerun</name>
+									<outputDirectory>${project.build.directory}/generated-test-sources/cucumber/rerun</outputDirectory>
+								</plugin>
+								<plugin>
+									<outputDirectory>${project.build.directory}/generated-test-sources/cucumber/json</outputDirectory>
+									<name>json</name>
+								</plugin>
+
+
+							</plugins>
+							<tags>
+								<tag>${execution.tag}</tag>
+
+							</tags>
+
+							<!-- Generate TestNG runners instead of default JUnit ones. -->
+							<useTestNG>false</useTestNG>
+							<!-- The naming scheme to use for the generated test classes. One 
+								of 'simple' or 'feature-title' -->
+							<namingScheme>simple</namingScheme>
+							<!-- The class naming pattern to use. Only required/used if naming 
+								scheme is 'pattern'. -->
+							<namingPattern>Parallel{c}IT</namingPattern>
+							<!-- One of [SCENARIO, FEATURE]. SCENARIO generates one runner per 
+								scenario. FEATURE generates a runner per feature. -->
+							<parallelScheme>SCENARIO</parallelScheme>
+
+							<useJUnitReRun>true</useJUnitReRun>
+							<retryCount>2</retryCount>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
+					<threadCount>${surefire.parallel.thread.count}</threadCount>
+					<forkCount>${surefire.parallel.thread.count}</forkCount>
+					<reuseForks>true</reuseForks>
+					<includes>
+						<include>${testrunner}</include>
+					</includes>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
+
+					<includes>
+						<include>**/*RerunFlakkyTest.class</include>
+					</includes>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>my-execution</id>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>logs</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.9</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.3</version>
+				<executions>
+					<execution>
+						<phase>post-integration-test</phase>
+						<configuration>
+							<property name="failOnError" value="false" />
+							<!-- <tasks> <task> <taskName></taskName> </task> </tasks> -->
+							<tasks>
+								<copy todir="${basedir}/allure-results">
+									<fileset dir="${basedir}/target/allure-results"
+										includes="**/*" />
+								</copy>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+
+
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-antrun-plugin
+										</artifactId>
+										<versionRange>
+											[1.3,)
+										</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<!-- <distributionManagement> <snapshotRepository> <id>snapshots</id> <name>ip-10-11-130-215.nbnpc.local-snapshots</name> 
+		<url>https://apro.nbnco.net.au/icrm-release-local</url> <uniqueVersion>true</uniqueVersion> 
+		</snapshotRepository> <repository> <id>central</id> <name>ip-10-11-128-92.nbnpc.local-releases</name> 
+		<url>https://apro.nbnco.net.au/icrm-release-local</url> </repository> </distributionManagement> -->
+	<reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<plugins>
+			<plugin>
+				<groupId>ru.yandex.qatools.allure</groupId>
+				<artifactId>allure-maven-plugin</artifactId>
+				<version>2.6</version>
+				<!-- <configuration> <repor </configuration> -->
+			</plugin>
+		</plugins>
+	</reporting>
+	<profiles>
+		<profile>
+			<id>Chrome</id>
+			<properties>
+				<steps.context.scope>SCENARIO</steps.context.scope>
+				<driver.browser>CHROME</driver.browser>
+				<execution.recordVideo>false</execution.recordVideo>
+				<aut>uat</aut>
+			</properties>
+		</profile>
+	</profiles>
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>public-remote-release</name>
+			<url>https://apro.nbnco.net.au/public-remote-release</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>public-remote-snapshot</name>
+			<url>https://apro.nbnco.net.au/public-remote-snapshot</url>
+		</repository>
+		<repository>
+			<id>icrm-release</id>
+			<name>icrm-release-local</name>
+			<url>https://apro.nbnco.net.au/icrm-release-local</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>icrm-snapshots</id>
+			<name>icrm-snapshot-local</name>
+			<url>https://apro.nbnco.net.au/icrm-snapshot-local</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>bintray-epam-reportportal</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/epam/reportportal</url>
+		</repository>
+
+		<!-- <repository> <id>mvnrepository</id> <name>mvnrepository</name> <url>https://mvnrepository.com</url> 
+			</repository> -->
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>dart-plugins-release</name>
+			<url>https://apro.nbnco.net.au/dart-plugins-release</url>
+		</pluginRepository>
+		<pluginRepository>
+			<snapshots />
+			<id>snapshots</id>
+			<name>dart-plugins-release</name>
+			<url>https://apro.nbnco.net.au/dart-plugins-release</url>
+		</pluginRepository>
+
+	</pluginRepositories>
+</project>
