@@ -19,7 +19,7 @@
 		<framework.version>0.9</framework.version>
 		<aspectj.version>1.8.10</aspectj.version>
 		<cucumber.version>2.2.0</cucumber.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<selenium.version>3.14.0</selenium.version>
 		<spring.version>4.3.10.RELEASE</spring.version>
 		<commons.version>3.2</commons.version>
